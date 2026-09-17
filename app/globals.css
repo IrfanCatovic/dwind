@@ -149,9 +149,39 @@
     animation: hero-kenburns 6.2s ease-out forwards;
   }
 
+  .europe-arc-primary {
+    stroke-dasharray: 12 14;
+    animation: europe-arc-drift 28s linear infinite;
+  }
+
+  .europe-arc-secondary {
+    animation: europe-line-pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes europe-arc-drift {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -260;
+    }
+  }
+
+  @keyframes europe-line-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-foundation-spin,
-    .animate-hero-kenburns {
+    .animate-hero-kenburns,
+    .europe-arc-primary,
+    .europe-arc-secondary {
       animation: none !important;
     }
   }

@@ -55,6 +55,19 @@ export type Dictionary = {
     intro: string;
     items: [ServiceItem, ServiceItem, ServiceItem];
   };
+  europe: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    supportStatement: string;
+    visualStatement: [string, string, string];
+    mapLabel: string;
+    points: [
+      { number: string; label: string },
+      { number: string; label: string },
+      { number: string; label: string },
+    ];
+  };
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -140,6 +153,19 @@ export const dictionaries: Record<Locale, Dictionary> = {
         },
       ],
     },
+    europe: {
+      eyebrow: "EUROPAWEIT IM EINSATZ",
+      heading: "Europaweit im Einsatz.",
+      body: "D-Wind GmbH ist für Windenergieprojekte an unterschiedlichen Standorten in Europa im Einsatz. Unsere Arbeiten richten sich dabei nach den Anforderungen, Planungen und Abläufen des jeweiligen Projekts.",
+      supportStatement: "Windenergie verbindet Europa.",
+      visualStatement: ["WINDENERGIE", "VERBINDET", "EUROPA."],
+      mapLabel: "Technische Darstellung Europas",
+      points: [
+        { number: "01", label: "Flexibel einsetzbar" },
+        { number: "02", label: "Projektorientierte Ausführung" },
+        { number: "03", label: "Europaweite Projekte" },
+      ],
+    },
   },
   en: {
     meta: {
@@ -219,6 +245,19 @@ export const dictionaries: Record<Locale, Dictionary> = {
           description:
             "Execution and support of work related to the concreting of wind turbine foundations.",
         },
+      ],
+    },
+    europe: {
+      eyebrow: "OPERATING ACROSS EUROPE",
+      heading: "Operating across Europe.",
+      body: "D-Wind GmbH works on wind energy projects at various locations across Europe. Our work is carried out in accordance with the requirements, plans and processes of each individual project.",
+      supportStatement: "Wind energy connects Europe.",
+      visualStatement: ["WIND ENERGY", "CONNECTS", "EUROPE."],
+      mapLabel: "Technical illustration of Europe",
+      points: [
+        { number: "01", label: "Flexible deployment" },
+        { number: "02", label: "Project-oriented execution" },
+        { number: "03", label: "Projects across Europe" },
       ],
     },
   },

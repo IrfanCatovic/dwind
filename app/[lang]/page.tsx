@@ -1,3 +1,4 @@
+import { EuropeSection } from "@/components/home/EuropeSection";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { SpecializationSection } from "@/components/home/SpecializationSection";
@@ -23,6 +24,7 @@ export default async function HomePage({ params }: PageProps) {
       <HeroSlider locale={lang} dictionary={dictionary} />
       <SpecializationSection dictionary={dictionary} />
       <ServicesSection dictionary={dictionary} />
+      <EuropeSection dictionary={dictionary} />
     </>
   );
 }
