@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
+import { brandAssets } from "@/lib/data/brand";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -17,11 +18,28 @@ export const metadata: Metadata = {
   },
   description:
     "D-Wind GmbH – Ihr zuverlässiger Partner im Fundamentbau für Windenergieanlagen. Spezialisierung auf Windenergie in Europa.",
+  icons: {
+    icon: [{ url: brandAssets.logo, type: "image/png" }],
+    shortcut: brandAssets.logo,
+    apple: [{ url: brandAssets.logo, type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",
     alternateLocale: ["en_GB"],
     siteName: "D-Wind GmbH",
+    images: [
+      {
+        url: brandAssets.shareImage,
+        width: 1774,
+        height: 887,
+        alt: "D-Wind GmbH",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [brandAssets.shareImage],
   },
 };
 

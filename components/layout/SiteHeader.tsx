@@ -1,35 +1,40 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useCallback, useEffect, useId, useState } from "react";
-import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/cn";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useCallback, useEffect, useId, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { ArrowRight, Menu, X } from 'lucide-react';
+import { Container } from '@/components/layout/Container';
+import { Button } from '@/components/ui/Button';
+import { cn } from '@/lib/cn';
+import { brandAssets } from '@/lib/data/brand';
 import {
   localePath,
   switchLocalePath,
   type Locale,
   type RouteKey,
-} from "@/lib/i18n/config";
-import type { Dictionary } from "@/lib/i18n/dictionaries";
+} from '@/lib/i18n/config';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 type SiteHeaderProps = {
   locale: Locale;
   dictionary: Dictionary;
 };
 
-const navItems: { key: RouteKey; labelKey: "home" | "work" | "contact" }[] = [
-  { key: "home", labelKey: "home" },
-  { key: "arbeiten", labelKey: "work" },
-  { key: "kontakt", labelKey: "contact" },
+const navItems: { key: RouteKey; labelKey: 'home' | 'work' | 'contact' }[] = [
+  { key: 'home', labelKey: 'home' },
+  { key: 'arbeiten', labelKey: 'work' },
+  { key: 'kontakt', labelKey: 'contact' },
 ];
 
-function isActivePath(pathname: string, locale: Locale, key: RouteKey): boolean {
+function isActivePath(
+  pathname: string,
+  locale: Locale,
+  key: RouteKey
+): boolean {
   const href = localePath(locale, key);
-  if (key === "home") {
+  if (key === 'home') {
     return pathname === `/${locale}` || pathname === `/${locale}/`;
   }
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -54,14 +59,14 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
       setScrolled(window.scrollY > 24);
     };
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle("menu-open", menuOpen);
+    document.body.classList.toggle('menu-open', menuOpen);
     return () => {
-      document.body.classList.remove("menu-open");
+      document.body.classList.remove('menu-open');
     };
   }, [menuOpen]);
 
@@ -71,13 +76,13 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
     }
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         setMenuOpen(false);
       }
     };
 
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
@@ -85,20 +90,20 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
+        'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300',
         scrolled || menuOpen
-          ? "border-b border-white/10 bg-background-dark/90 backdrop-blur-md"
-          : "border-b border-transparent bg-background-dark/25 backdrop-blur-[2px]",
+          ? 'border-b border-white/10 bg-background-dark/90 backdrop-blur-md'
+          : 'border-b border-transparent bg-background-dark/25 backdrop-blur-[2px]'
       )}
     >
       <Container className="flex h-[var(--site-header-height)] items-center justify-between gap-4">
         <Link
-          href={localePath(locale, "home")}
+          href={localePath(locale, 'home')}
           className="relative block h-10 w-[7.75rem] shrink-0 sm:h-11 sm:w-[9.25rem] lg:h-[3.4rem] lg:w-[12rem]"
           onClick={closeMenu}
         >
           <Image
-            src="/brand/logo.png"
+            src={brandAssets.logo}
             alt="D-Wind GmbH"
             fill
             priority
@@ -120,18 +125,18 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
                 key={item.key}
                 href={href}
                 className={cn(
-                  "relative py-1 text-[0.8125rem] tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background-dark",
+                  'relative py-1 text-[0.8125rem] tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background-dark',
                   active
-                    ? "font-medium text-text-light"
-                    : "text-text-muted hover:text-text-light",
+                    ? 'font-medium text-text-light'
+                    : 'text-text-muted hover:text-text-light'
                 )}
               >
                 {dictionary.nav[item.labelKey]}
                 <span
                   aria-hidden
                   className={cn(
-                    "absolute inset-x-0 -bottom-0.5 h-px origin-left bg-brand-green transition-transform duration-300",
-                    active ? "scale-x-100" : "scale-x-0",
+                    'absolute inset-x-0 -bottom-0.5 h-px origin-left bg-brand-green transition-transform duration-300',
+                    active ? 'scale-x-100' : 'scale-x-0'
                   )}
                 />
               </Link>
@@ -145,12 +150,12 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
             aria-label={dictionary.nav.language}
           >
             <Link
-              href={switchLocalePath(pathname, "de")}
+              href={switchLocalePath(pathname, 'de')}
               className={cn(
-                "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60",
-                locale === "de"
-                  ? "text-text-light"
-                  : "text-text-muted hover:text-text-light",
+                'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60',
+                locale === 'de'
+                  ? 'text-text-light'
+                  : 'text-text-muted hover:text-text-light'
               )}
               hrefLang="de"
               lang="de"
@@ -161,12 +166,12 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
               |
             </span>
             <Link
-              href={switchLocalePath(pathname, "en")}
+              href={switchLocalePath(pathname, 'en')}
               className={cn(
-                "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60",
-                locale === "en"
-                  ? "text-text-light"
-                  : "text-text-muted hover:text-text-light",
+                'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60',
+                locale === 'en'
+                  ? 'text-text-light'
+                  : 'text-text-muted hover:text-text-light'
               )}
               hrefLang="en"
               lang="en"
@@ -176,7 +181,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
           </div>
 
           <Button
-            href={localePath(locale, "kontakt")}
+            href={localePath(locale, 'kontakt')}
             size="md"
             className="group hidden md:inline-flex"
           >
@@ -209,8 +214,8 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
       <div
         id={menuId}
         className={cn(
-          "border-t border-white/10 bg-background-dark/98 backdrop-blur-md lg:hidden",
-          menuOpen ? "block" : "hidden",
+          'border-t border-white/10 bg-background-dark/98 backdrop-blur-md lg:hidden',
+          menuOpen ? 'block' : 'hidden'
         )}
       >
         <Container className="flex max-h-[calc(100svh-var(--site-header-height))] flex-col gap-8 overflow-y-auto py-8">
@@ -228,10 +233,10 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
                   href={href}
                   onClick={closeMenu}
                   className={cn(
-                    "border-l-2 px-4 py-3 text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60",
+                    'border-l-2 px-4 py-3 text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60',
                     active
-                      ? "border-brand-green bg-white/[0.03] font-medium text-text-light"
-                      : "border-transparent text-text-muted hover:text-text-light",
+                      ? 'border-brand-green bg-white/[0.03] font-medium text-text-light'
+                      : 'border-transparent text-text-muted hover:text-text-light'
                   )}
                 >
                   {dictionary.nav[item.labelKey]}
@@ -245,10 +250,10 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
             aria-label={dictionary.nav.language}
           >
             <Link
-              href={switchLocalePath(pathname, "de")}
+              href={switchLocalePath(pathname, 'de')}
               onClick={closeMenu}
               className={
-                locale === "de" ? "text-text-light" : "text-text-muted"
+                locale === 'de' ? 'text-text-light' : 'text-text-muted'
               }
               hrefLang="de"
               lang="de"
@@ -259,10 +264,10 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
               |
             </span>
             <Link
-              href={switchLocalePath(pathname, "en")}
+              href={switchLocalePath(pathname, 'en')}
               onClick={closeMenu}
               className={
-                locale === "en" ? "text-text-light" : "text-text-muted"
+                locale === 'en' ? 'text-text-light' : 'text-text-muted'
               }
               hrefLang="en"
               lang="en"
@@ -273,7 +278,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
 
           <div className="px-4 pb-2">
             <Button
-              href={localePath(locale, "kontakt")}
+              href={localePath(locale, 'kontakt')}
               size="lg"
               className="group w-full sm:w-auto"
               onClick={closeMenu}

@@ -1,5 +1,11 @@
 import type { Locale } from "./config";
 
+export type ServiceItem = {
+  number: string;
+  title: string;
+  description: string;
+};
+
 export type Dictionary = {
   meta: {
     siteName: string;
@@ -35,6 +41,19 @@ export type Dictionary = {
     nextSlide: string;
     slideshowLabel: string;
     imageAlts: [string, string, string];
+  };
+  specialization: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    imageAlt: string;
+    technicalLabel: string;
+  };
+  services: {
+    eyebrow: string;
+    heading: string;
+    intro: string;
+    items: [ServiceItem, ServiceItem, ServiceItem];
   };
 };
 
@@ -86,6 +105,41 @@ export const dictionaries: Record<Locale, Dictionary> = {
         "Betonierarbeiten am Fundament einer Windenergieanlage",
       ],
     },
+    specialization: {
+      eyebrow: "SPEZIALISIERUNG AUF WINDENERGIE",
+      heading:
+        "Unser Schwerpunkt liegt im Fundamentbau für Windenergieanlagen.",
+      body: "D-Wind GmbH unterstützt Windenergieprojekte mit fachgerechten Arbeiten im Bereich Bewehrung, Schalung und Betonage. Dabei stehen eine zuverlässige Ausführung, klare Abläufe und die Anforderungen des jeweiligen Projekts im Mittelpunkt.",
+      imageAlt:
+        "Ankerring und Bewehrung eines Windenergieanlagen-Fundaments auf der Baustelle",
+      technicalLabel: "FUNDAMENTBAU · WINDENERGIE",
+    },
+    services: {
+      eyebrow: "UNSERE LEISTUNGEN",
+      heading: "Leistungen für den Fundamentbau",
+      intro:
+        "Unsere Arbeiten konzentrieren sich auf zentrale Bauabschnitte im Fundamentbau für Windenergieanlagen.",
+      items: [
+        {
+          number: "01",
+          title: "Bewehrungsarbeiten",
+          description:
+            "Fachgerechte Verarbeitung und Montage der Bewehrung nach den jeweiligen Plan- und Projektvorgaben.",
+        },
+        {
+          number: "02",
+          title: "Schalungsarbeiten",
+          description:
+            "Präzise Schalungsarbeiten als Bestandteil der Fundamentausführung für Windenergieanlagen.",
+        },
+        {
+          number: "03",
+          title: "Betonierarbeiten",
+          description:
+            "Ausführung und Unterstützung bei Arbeiten im Zusammenhang mit der Betonage von Fundamenten für Windenergieanlagen.",
+        },
+      ],
+    },
   },
   en: {
     meta: {
@@ -131,6 +185,40 @@ export const dictionaries: Record<Locale, Dictionary> = {
         "Reinforcement work on a wind energy construction site",
         "Formwork and foundation work for a wind turbine",
         "Concreting work on a wind turbine foundation",
+      ],
+    },
+    specialization: {
+      eyebrow: "SPECIALIZED IN WIND ENERGY",
+      heading: "Our focus is on foundation construction for wind turbines.",
+      body: "D-Wind GmbH supports wind energy projects with professional reinforcement, formwork and concreting work. Reliable execution, clear processes and the requirements of each individual project are at the center of our work.",
+      imageAlt:
+        "Anchor ring and reinforcement of a wind turbine foundation on site",
+      technicalLabel: "FOUNDATION · WIND ENERGY",
+    },
+    services: {
+      eyebrow: "OUR SERVICES",
+      heading: "Services for wind turbine foundations",
+      intro:
+        "Our work focuses on key construction stages within wind turbine foundation projects.",
+      items: [
+        {
+          number: "01",
+          title: "Reinforcement Works",
+          description:
+            "Professional processing and installation of reinforcement in accordance with the relevant plans and project specifications.",
+        },
+        {
+          number: "02",
+          title: "Formwork Works",
+          description:
+            "Precise formwork works as part of wind turbine foundation construction.",
+        },
+        {
+          number: "03",
+          title: "Concreting Works",
+          description:
+            "Execution and support of work related to the concreting of wind turbine foundations.",
+        },
       ],
     },
   },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { brandAssets } from "@/lib/data/brand";
 import { isLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { generateStaticParams } from "@/lib/i18n/params";
@@ -31,6 +32,11 @@ export async function generateMetadata({
       absolute: dictionary.meta.defaultTitle,
     },
     description: dictionary.meta.defaultDescription,
+    icons: {
+      icon: [{ url: brandAssets.logo, type: "image/png" }],
+      shortcut: brandAssets.logo,
+      apple: [{ url: brandAssets.logo, type: "image/png" }],
+    },
     alternates: {
       languages: {
         de: "/de",
@@ -42,6 +48,20 @@ export async function generateMetadata({
       locale: lang === "de" ? "de_DE" : "en_GB",
       title: dictionary.meta.defaultTitle,
       description: dictionary.meta.defaultDescription,
+      images: [
+        {
+          url: brandAssets.shareImage,
+          width: 1774,
+          height: 887,
+          alt: dictionary.meta.siteName,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dictionary.meta.defaultTitle,
+      description: dictionary.meta.defaultDescription,
+      images: [brandAssets.shareImage],
     },
   };
 }
