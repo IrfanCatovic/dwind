@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  /* Surfaces */
+  --background-dark: #111514;
+  --background-dark-secondary: #181d1b;
+  --background-light: #f4f5f2;
+  --surface-elevated: #1e2522;
+
+  /* Text */
+  --text-light: #f7f8f6;
+  --text-muted: #a9afab;
+  --text-dark: #171a18;
+
+  /* Brand accents (sampled from Logo.jpeg) */
+  --brand-green: #52aa3c;
+  --brand-green-soft: rgba(82, 170, 60, 0.16);
+  --brand-cyan: #2acaee;
+  --brand-cyan-soft: rgba(42, 202, 238, 0.14);
+
+  /* Lines / overlays */
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(23, 26, 24, 0.12);
+  --ring-outline: rgba(255, 255, 255, 0.08);
+
+  /* Concrete neutrals */
+  --concrete: #8b928c;
+  --concrete-dark: #5c635e;
+}
+
+@theme inline {
+  --color-background-dark: var(--background-dark);
+  --color-background-dark-secondary: var(--background-dark-secondary);
+  --color-background-light: var(--background-light);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-text-light: var(--text-light);
+  --color-text-muted: var(--text-muted);
+  --color-text-dark: var(--text-dark);
+
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-soft: var(--brand-green-soft);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-cyan-soft: var(--brand-cyan-soft);
+
+  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border-light);
+  --color-ring-outline: var(--ring-outline);
+
+  --color-concrete: var(--concrete);
+  --color-concrete-dark: var(--concrete-dark);
+
+  --font-sans: var(--font-ibm-plex-sans), "IBM Plex Sans", system-ui, sans-serif;
+
+  --breakpoint-xs: 30rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background-dark);
+    color: var(--text-light);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand-green) 35%, transparent);
+    color: var(--text-light);
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .text-h1 {
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .text-h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  .text-h3 {
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .text-eyebrow {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}

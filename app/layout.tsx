@@ -1,0 +1,36 @@
+import type { Metadata } from "next";
+import { IBM_Plex_Sans } from "next/font/google";
+import "./globals.css";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.d-wind.de"),
+  title: {
+    default: "D-Wind GmbH | Fundamentbau für Windenergieanlagen",
+    template: "%s | D-Wind GmbH",
+  },
+  description:
+    "D-Wind GmbH – Ihr zuverlässiger Partner im Fundamentbau für Windenergieanlagen. Spezialisierung auf Windenergie in Europa.",
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    alternateLocale: ["en_GB"],
+    siteName: "D-Wind GmbH",
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html lang="de" className={`${ibmPlexSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-background-dark font-sans text-text-light">
+        {children}
+      </body>
+    </html>
+  );
+}
