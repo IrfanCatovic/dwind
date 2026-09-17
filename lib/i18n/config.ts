@@ -13,6 +13,8 @@ export const routes = {
   home: "",
   arbeiten: "arbeiten",
   kontakt: "kontakt",
+  impressum: "impressum",
+  datenschutz: "datenschutz",
 } as const;
 
 export type RouteKey = keyof typeof routes;

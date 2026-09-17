@@ -1,3 +1,4 @@
+import { ContactCtaSection } from "@/components/home/ContactCtaSection";
 import { EuropeSection } from "@/components/home/EuropeSection";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { ServicesSection } from "@/components/home/ServicesSection";
@@ -27,6 +28,7 @@ export default async function HomePage({ params }: PageProps) {
       <ServicesSection dictionary={dictionary} />
       <EuropeSection dictionary={dictionary} />
       <WorkPreviewSection locale={lang} dictionary={dictionary} />
+      <ContactCtaSection locale={lang} dictionary={dictionary} />
     </>
   );
 }

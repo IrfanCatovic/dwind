@@ -45,9 +45,9 @@ export const galleryImages: GalleryImage[] = [
     "src": "/images/gallery/789.webp",
     "filename": "789.webp",
     "alt": "",
-    "category": "",
+    "category": "overview",
     "caption": "",
-    "featured": false
+    "featured": true
   },
   {
     "id": "gallery-005",
@@ -92,7 +92,7 @@ export const galleryImages: GalleryImage[] = [
     "alt": "",
     "category": "anker",
     "caption": "",
-    "featured": true
+    "featured": false
   },
   {
     "id": "gallery-010",
@@ -543,7 +543,7 @@ export const featuredGalleryImages = galleryImages.filter(
 
 /** Ordered homepage preview set: feature image first, then four supporting shots */
 export const homepagePreviewIds = [
-  "gallery-009", // anchor / central foundation structure — feature
+  "gallery-004", // wide construction overview — feature (avoids specialization anker image)
   "gallery-007", // reinforcement
   "gallery-008", // concreting
   "gallery-002", // site overview

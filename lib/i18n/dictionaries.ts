@@ -77,6 +77,31 @@ export type Dictionary = {
     sectionId: string;
     imageAlts: [string, string, string, string, string];
   };
+  contactCta: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    primaryCta: string;
+    statement: string;
+    emailLabel: string;
+    phoneLabel: string;
+    mobileLabel: string;
+    backgroundAlt: string;
+  };
+  footer: {
+    tagline: string;
+    navigationLabel: string;
+    contactLabel: string;
+    impressum: string;
+    datenschutz: string;
+    rights: string;
+    language: string;
+  };
+  legal: {
+    impressumTitle: string;
+    datenschutzTitle: string;
+    placeholder: string;
+  };
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -183,12 +208,38 @@ export const dictionaries: Record<Locale, Dictionary> = {
       hoverCta: "Arbeit ansehen",
       sectionId: "D-WIND / ARBEITEN",
       imageAlts: [
-        "Ankerring und Bewehrung eines Windkraftfundaments",
+        "Fundamentarbeiten auf einer Windenergie-Baustelle",
         "Bewehrungsarbeiten an einem Windkraftfundament",
         "Betonierarbeiten auf einer Windenergie-Baustelle",
-        "Fundamentarbeiten auf einer Windenergie-Baustelle",
+        "Übersicht einer Windenergie-Baustelle",
         "Baustellenarbeiten im Fundamentbau für Windenergieanlagen",
       ],
+    },
+    contactCta: {
+      eyebrow: "KONTAKT",
+      heading: "Sie planen ein Windenergieprojekt?",
+      body: "Sprechen Sie direkt mit D-Wind über Ihr Vorhaben.",
+      primaryCta: "Kontakt aufnehmen",
+      statement: "FUNDAMENTE FÜR EINE STARKE ZUKUNFT.",
+      emailLabel: "E-Mail",
+      phoneLabel: "Telefon",
+      mobileLabel: "Mobil",
+      backgroundAlt: "Baustellenarbeiten im Fundamentbau für Windenergieanlagen",
+    },
+    footer: {
+      tagline: "Fundamentbau für Windenergieanlagen",
+      navigationLabel: "Navigation",
+      contactLabel: "Kontakt",
+      impressum: "Impressum",
+      datenschutz: "Datenschutz",
+      rights: "D-Wind GmbH",
+      language: "Sprache",
+    },
+    legal: {
+      impressumTitle: "Impressum",
+      datenschutzTitle: "Datenschutz",
+      placeholder:
+        "Rechtliche Angaben werden vor Veröffentlichung ergänzt.",
     },
   },
   en: {
@@ -292,12 +343,37 @@ export const dictionaries: Record<Locale, Dictionary> = {
       hoverCta: "View work",
       sectionId: "D-WIND / WORK",
       imageAlts: [
-        "Anchor ring and reinforcement of a wind turbine foundation",
+        "Foundation work on a wind energy construction site",
         "Reinforcement work on a wind turbine foundation",
         "Concreting work on a wind energy construction site",
-        "Foundation work on a wind energy construction site",
+        "Overview of a wind energy construction site",
         "Construction work on a wind turbine foundation project",
       ],
+    },
+    contactCta: {
+      eyebrow: "CONTACT",
+      heading: "Planning a wind energy project?",
+      body: "Talk directly to D-Wind about your project.",
+      primaryCta: "Get in touch",
+      statement: "FOUNDATIONS FOR A STRONG FUTURE.",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      mobileLabel: "Mobile",
+      backgroundAlt: "Construction work on a wind turbine foundation project",
+    },
+    footer: {
+      tagline: "Foundations for wind turbines",
+      navigationLabel: "Navigation",
+      contactLabel: "Contact",
+      impressum: "Imprint",
+      datenschutz: "Privacy",
+      rights: "D-Wind GmbH",
+      language: "Language",
+    },
+    legal: {
+      impressumTitle: "Imprint",
+      datenschutzTitle: "Privacy",
+      placeholder: "Legal information will be completed before publication.",
     },
   },
 };

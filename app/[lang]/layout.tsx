@@ -80,7 +80,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
     <div className="flex min-h-full flex-col" lang={locale}>
       <SiteHeader locale={locale} dictionary={dictionary} />
       <main className="flex-1">{children}</main>
-      <SiteFooter dictionary={dictionary} />
+      <SiteFooter locale={locale} dictionary={dictionary} />
     </div>
   );
 }
