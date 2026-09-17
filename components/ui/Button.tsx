@@ -9,10 +9,11 @@ type CommonProps = {
   className?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
 };
 
 type ButtonAsButton = CommonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children" | "onClick"> & {
     href?: undefined;
   };
 
@@ -28,14 +29,14 @@ const variantClass: Record<ButtonVariant, string> = {
   primary:
     "bg-brand-green text-text-dark hover:brightness-110 focus-visible:ring-brand-green",
   secondary:
-    "border border-border-dark bg-transparent text-text-light hover:border-brand-cyan/50 hover:text-brand-cyan focus-visible:ring-brand-cyan",
+    "border border-white/25 bg-transparent text-text-light hover:border-brand-cyan/60 hover:text-brand-cyan focus-visible:ring-brand-cyan",
   ghost:
     "bg-transparent text-text-muted hover:text-text-light focus-visible:ring-border-dark",
 };
 
 const sizeClass: Record<ButtonSize, string> = {
   md: "px-5 py-2.5 text-sm",
-  lg: "px-6 py-3 text-base",
+  lg: "px-6 py-3.5 text-[0.9375rem]",
 };
 
 export function Button({
@@ -43,6 +44,7 @@ export function Button({
   className,
   variant = "primary",
   size = "md",
+  onClick,
   ...props
 }: ButtonProps) {
   const classes = cn(
@@ -55,15 +57,26 @@ export function Button({
   if ("href" in props && props.href) {
     const { href, target, rel } = props;
     return (
-      <Link href={href} target={target} rel={rel} className={classes}>
+      <Link
+        href={href}
+        target={target}
+        rel={rel}
+        className={classes}
+        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
+      >
         {children}
       </Link>
     );
   }
 
-  const buttonProps = props as Omit<ButtonAsButton, "href">;
+  const buttonProps = props as Omit<ButtonAsButton, "href" | "onClick">;
   return (
-    <button type="button" className={classes} {...buttonProps}>
+    <button
+      type="button"
+      className={classes}
+      onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
+      {...buttonProps}
+    >
       {children}
     </button>
   );

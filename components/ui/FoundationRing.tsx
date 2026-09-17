@@ -6,6 +6,8 @@ type FoundationRingProps = {
   intensity?: "subtle" | "medium";
   /** Which corner/edge the oversized arc anchors toward */
   anchor?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | "center";
+  /** Very slow rotation — disabled automatically under reduced motion via CSS */
+  spin?: boolean;
 };
 
 const anchorClass: Record<NonNullable<FoundationRingProps["anchor"]>, string> =
@@ -25,14 +27,15 @@ export function FoundationRing({
   className,
   intensity = "subtle",
   anchor = "top-right",
+  spin = false,
 }: FoundationRingProps) {
-  const opacity = intensity === "subtle" ? "opacity-[0.12]" : "opacity-[0.2]";
+  const opacity = intensity === "subtle" ? "opacity-[0.1]" : "opacity-[0.18]";
 
   return (
     <div
       aria-hidden
       className={cn(
-        "pointer-events-none absolute z-0 size-[min(90vw,42rem)] sm:size-[min(80vw,52rem)]",
+        "pointer-events-none absolute z-0 size-[min(95vw,46rem)] sm:size-[min(85vw,56rem)] lg:size-[min(70vw,64rem)]",
         anchorClass[anchor],
         className,
       )}
@@ -40,7 +43,11 @@ export function FoundationRing({
       <svg
         viewBox="0 0 400 400"
         fill="none"
-        className={cn("size-full", opacity)}
+        className={cn(
+          "size-full text-text-light",
+          opacity,
+          spin && "animate-foundation-spin",
+        )}
       >
         <circle
           cx="200"
@@ -48,7 +55,6 @@ export function FoundationRing({
           r="188"
           stroke="currentColor"
           strokeWidth="1"
-          className="text-text-light"
         />
         <circle
           cx="200"
@@ -56,7 +62,7 @@ export function FoundationRing({
           r="156"
           stroke="currentColor"
           strokeWidth="1"
-          strokeDasharray="2 10"
+          strokeDasharray="2 12"
           className="text-brand-cyan"
         />
         <circle
@@ -64,8 +70,8 @@ export function FoundationRing({
           cy="200"
           r="118"
           stroke="currentColor"
-          strokeWidth="1.25"
-          className="text-brand-green"
+          strokeWidth="1"
+          className="text-text-muted"
         />
         <circle
           cx="200"
@@ -73,7 +79,6 @@ export function FoundationRing({
           r="72"
           stroke="currentColor"
           strokeWidth="1"
-          className="text-text-muted"
         />
       </svg>
     </div>

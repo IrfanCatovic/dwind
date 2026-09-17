@@ -13,12 +13,28 @@ export type Dictionary = {
     cta: string;
     de: string;
     en: string;
+    openMenu: string;
+    closeMenu: string;
+    primaryNav: string;
+    language: string;
   };
   pages: {
     homeTitle: string;
     workTitle: string;
     contactTitle: string;
     placeholder: string;
+  };
+  hero: {
+    eyebrow: string;
+    titleLines: [string, string, string];
+    description: string;
+    primaryCta: string;
+    secondaryCta: string;
+    trustLine: string;
+    prevSlide: string;
+    nextSlide: string;
+    slideshowLabel: string;
+    imageAlts: [string, string, string];
   };
 };
 
@@ -37,6 +53,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "Kontakt aufnehmen",
       de: "DE",
       en: "EN",
+      openMenu: "Menü öffnen",
+      closeMenu: "Menü schließen",
+      primaryNav: "Hauptnavigation",
+      language: "Sprache",
     },
     pages: {
       homeTitle: "Startseite",
@@ -44,6 +64,27 @@ export const dictionaries: Record<Locale, Dictionary> = {
       contactTitle: "Kontakt",
       placeholder:
         "Seitengrundlage – Inhalte folgen in einem späteren Schritt.",
+    },
+    hero: {
+      eyebrow: "D-WIND GMBH · WINDENERGIE",
+      titleLines: [
+        "Ihr zuverlässiger Partner",
+        "im Fundamentbau für",
+        "Windenergieanlagen.",
+      ],
+      description:
+        "Fachgerechte Bewehrungs-, Schalungs- und Betonierarbeiten für Windenergieprojekte in Europa.",
+      primaryCta: "Unsere Arbeiten",
+      secondaryCta: "Kontakt aufnehmen",
+      trustLine: "Europaweit im Einsatz",
+      prevSlide: "Vorheriges Bild",
+      nextSlide: "Nächstes Bild",
+      slideshowLabel: "Baustellenbilder",
+      imageAlts: [
+        "Bewehrungsarbeiten auf einer Windenergie-Baustelle",
+        "Schalungs- und Fundamentarbeiten für eine Windenergieanlage",
+        "Betonierarbeiten am Fundament einer Windenergieanlage",
+      ],
     },
   },
   en: {
@@ -60,12 +101,37 @@ export const dictionaries: Record<Locale, Dictionary> = {
       cta: "Get in touch",
       de: "DE",
       en: "EN",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+      primaryNav: "Primary navigation",
+      language: "Language",
     },
     pages: {
       homeTitle: "Home",
       workTitle: "Our Work",
       contactTitle: "Contact",
       placeholder: "Page foundation – content will follow in a later step.",
+    },
+    hero: {
+      eyebrow: "D-WIND GMBH · WIND ENERGY",
+      titleLines: [
+        "Your reliable partner",
+        "for wind turbine",
+        "foundation construction.",
+      ],
+      description:
+        "Professional reinforcement, formwork and concreting work for wind energy projects across Europe.",
+      primaryCta: "Our Work",
+      secondaryCta: "Get in touch",
+      trustLine: "Operating across Europe",
+      prevSlide: "Previous slide",
+      nextSlide: "Next slide",
+      slideshowLabel: "Construction site images",
+      imageAlts: [
+        "Reinforcement work on a wind energy construction site",
+        "Formwork and foundation work for a wind turbine",
+        "Concreting work on a wind turbine foundation",
+      ],
     },
   },
 };

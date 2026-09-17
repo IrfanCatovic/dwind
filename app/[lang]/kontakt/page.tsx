@@ -41,7 +41,10 @@ export default async function ContactPage({ params }: PageProps) {
   const dictionary = getDictionary(lang);
 
   return (
-    <Section tone="dark" className="min-h-[50vh]">
+    <Section
+      tone="dark"
+      className="min-h-[50vh] pt-[calc(var(--site-header-height)+2.5rem)]"
+    >
       <Container>
         <p className="text-eyebrow text-brand-cyan">{dictionary.meta.siteName}</p>
         <h1 className="text-h1 mt-3">{dictionary.pages.contactTitle}</h1>

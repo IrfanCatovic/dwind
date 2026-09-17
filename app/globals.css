@@ -12,7 +12,7 @@
   --text-muted: #a9afab;
   --text-dark: #171a18;
 
-  /* Brand accents (sampled from Logo.jpeg) */
+  /* Brand accents (sampled from D-Wind logo) */
   --brand-green: #52aa3c;
   --brand-green-soft: rgba(82, 170, 60, 0.16);
   --brand-cyan: #2acaee;
@@ -26,6 +26,9 @@
   /* Concrete neutrals */
   --concrete: #8b928c;
   --concrete-dark: #5c635e;
+
+  /* Layout */
+  --site-header-height: 4.5rem;
 }
 
 @theme inline {
@@ -67,9 +70,31 @@
     text-rendering: optimizeLegibility;
   }
 
+  body.menu-open {
+    overflow: hidden;
+  }
+
   ::selection {
     background: color-mix(in srgb, var(--brand-green) 35%, transparent);
     color: var(--text-light);
+  }
+}
+
+@keyframes foundation-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.055);
   }
 }
 
@@ -114,5 +139,20 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 500;
+  }
+
+  .animate-foundation-spin {
+    animation: foundation-spin 120s linear infinite;
+  }
+
+  .animate-hero-kenburns {
+    animation: hero-kenburns 6.2s ease-out forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-foundation-spin,
+    .animate-hero-kenburns {
+      animation: none !important;
+    }
   }
 }
