@@ -2,6 +2,7 @@ import { EuropeSection } from "@/components/home/EuropeSection";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { SpecializationSection } from "@/components/home/SpecializationSection";
+import { WorkPreviewSection } from "@/components/home/WorkPreviewSection";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { notFound } from "next/navigation";
@@ -25,6 +26,7 @@ export default async function HomePage({ params }: PageProps) {
       <SpecializationSection dictionary={dictionary} />
       <ServicesSection dictionary={dictionary} />
       <EuropeSection dictionary={dictionary} />
+      <WorkPreviewSection locale={lang} dictionary={dictionary} />
     </>
   );
 }

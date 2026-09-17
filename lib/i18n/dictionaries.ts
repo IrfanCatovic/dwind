@@ -68,6 +68,15 @@ export type Dictionary = {
       { number: string; label: string },
     ];
   };
+  workPreview: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    cta: string;
+    hoverCta: string;
+    sectionId: string;
+    imageAlts: [string, string, string, string, string];
+  };
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -166,6 +175,21 @@ export const dictionaries: Record<Locale, Dictionary> = {
         { number: "03", label: "Europaweite Projekte" },
       ],
     },
+    workPreview: {
+      eyebrow: "EINBLICKE IN UNSERE ARBEIT",
+      heading: "Fundamentbau in der Praxis.",
+      body: "Einblicke in unsere Arbeiten im Fundamentbau für Windenergieanlagen.",
+      cta: "Alle Arbeiten ansehen",
+      hoverCta: "Arbeit ansehen",
+      sectionId: "D-WIND / ARBEITEN",
+      imageAlts: [
+        "Ankerring und Bewehrung eines Windkraftfundaments",
+        "Bewehrungsarbeiten an einem Windkraftfundament",
+        "Betonierarbeiten auf einer Windenergie-Baustelle",
+        "Fundamentarbeiten auf einer Windenergie-Baustelle",
+        "Baustellenarbeiten im Fundamentbau für Windenergieanlagen",
+      ],
+    },
   },
   en: {
     meta: {
@@ -258,6 +282,21 @@ export const dictionaries: Record<Locale, Dictionary> = {
         { number: "01", label: "Flexible deployment" },
         { number: "02", label: "Project-oriented execution" },
         { number: "03", label: "Projects across Europe" },
+      ],
+    },
+    workPreview: {
+      eyebrow: "A LOOK AT OUR WORK",
+      heading: "Foundation work in practice.",
+      body: "A look at our work on wind turbine foundation projects.",
+      cta: "View all work",
+      hoverCta: "View work",
+      sectionId: "D-WIND / WORK",
+      imageAlts: [
+        "Anchor ring and reinforcement of a wind turbine foundation",
+        "Reinforcement work on a wind turbine foundation",
+        "Concreting work on a wind energy construction site",
+        "Foundation work on a wind energy construction site",
+        "Construction work on a wind turbine foundation project",
       ],
     },
   },

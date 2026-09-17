@@ -27,18 +27,18 @@ export const galleryImages: GalleryImage[] = [
     "src": "/images/gallery/1234.webp",
     "filename": "1234.webp",
     "alt": "",
-    "category": "",
+    "category": "overview",
     "caption": "",
-    "featured": false
+    "featured": true
   },
   {
     "id": "gallery-003",
     "src": "/images/gallery/456.webp",
     "filename": "456.webp",
     "alt": "",
-    "category": "",
+    "category": "baustelle",
     "caption": "",
-    "featured": false
+    "featured": true
   },
   {
     "id": "gallery-004",
@@ -72,27 +72,27 @@ export const galleryImages: GalleryImage[] = [
     "src": "/images/gallery/d-wind-02-bewehrung.webp",
     "filename": "d-wind-02-bewehrung.webp",
     "alt": "",
-    "category": "",
+    "category": "bewehrung",
     "caption": "",
-    "featured": false
+    "featured": true
   },
   {
     "id": "gallery-008",
     "src": "/images/gallery/d-wind-04-betonage.webp",
     "filename": "d-wind-04-betonage.webp",
     "alt": "",
-    "category": "",
+    "category": "betonage",
     "caption": "",
-    "featured": false
+    "featured": true
   },
   {
     "id": "gallery-009",
     "src": "/images/gallery/d-wind-06-galerie-anker.webp",
     "filename": "d-wind-06-galerie-anker.webp",
     "alt": "",
-    "category": "",
+    "category": "anker",
     "caption": "",
-    "featured": false
+    "featured": true
   },
   {
     "id": "gallery-010",
@@ -540,3 +540,22 @@ export const galleryImages: GalleryImage[] = [
 export const featuredGalleryImages = galleryImages.filter(
   (image) => image.featured,
 );
+
+/** Ordered homepage preview set: feature image first, then four supporting shots */
+export const homepagePreviewIds = [
+  "gallery-009", // anchor / central foundation structure — feature
+  "gallery-007", // reinforcement
+  "gallery-008", // concreting
+  "gallery-002", // site overview
+  "gallery-003", // construction detail
+] as const;
+
+export function getHomepagePreviewImages(): GalleryImage[] {
+  return homepagePreviewIds.map((id) => {
+    const image = galleryImages.find((entry) => entry.id === id);
+    if (!image) {
+      throw new Error(`Missing homepage preview image: ${id}`);
+    }
+    return image;
+  });
+}
