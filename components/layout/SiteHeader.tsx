@@ -94,7 +94,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
       <Container className="flex h-[var(--site-header-height)] items-center justify-between gap-4">
         <Link
           href={localePath(locale, "home")}
-          className="relative block h-10 w-[7.75rem] shrink-0 sm:h-11 sm:w-[9.25rem] lg:h-12 lg:w-[10.5rem]"
+          className="relative block h-10 w-[7.75rem] shrink-0 sm:h-11 sm:w-[9.25rem] lg:h-[3.4rem] lg:w-[12rem]"
           onClick={closeMenu}
         >
           <Image
@@ -102,7 +102,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
             alt="D-Wind GmbH"
             fill
             priority
-            sizes="(max-width: 640px) 124px, (max-width: 1024px) 148px, 168px"
+            sizes="(max-width: 640px) 124px, (max-width: 1024px) 148px, 192px"
             className="object-contain object-left"
           />
         </Link>
