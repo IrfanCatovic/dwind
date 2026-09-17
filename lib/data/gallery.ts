@@ -559,3 +559,84 @@ export function getHomepagePreviewImages(): GalleryImage[] {
     return image;
   });
 }
+
+/** Public gallery images for the Arbeiten page — excludes generated ChatGPT assets */
+export function getPublicGalleryImages(): GalleryImage[] {
+  return galleryImages.filter(
+    (image) => !/chatgpt\s*image/i.test(image.filename),
+  );
+}
+
+export const GALLERY_INITIAL_COUNT = 18;
+export const GALLERY_LOAD_MORE_COUNT = 12;
+
+/** Predictable editorial aspect/span pattern for gallery rhythm */
+export function getGalleryItemLayout(index: number): {
+  aspectClass: string;
+  spanClass: string;
+} {
+  const pattern = index % 12;
+
+  switch (pattern) {
+    case 0:
+      return {
+        aspectClass: "aspect-[4/3]",
+        spanClass: "col-span-2 sm:col-span-1",
+      };
+    case 1:
+      return {
+        aspectClass: "aspect-[3/4]",
+        spanClass: "col-span-1",
+      };
+    case 2:
+      return {
+        aspectClass: "aspect-[5/4]",
+        spanClass: "col-span-1",
+      };
+    case 3:
+      return {
+        aspectClass: "aspect-[16/10]",
+        spanClass: "col-span-2 sm:col-span-2 lg:col-span-2",
+      };
+    case 4:
+      return {
+        aspectClass: "aspect-[4/5]",
+        spanClass: "col-span-1",
+      };
+    case 5:
+      return {
+        aspectClass: "aspect-[4/3]",
+        spanClass: "col-span-1",
+      };
+    case 6:
+      return {
+        aspectClass: "aspect-[3/4]",
+        spanClass: "col-span-1",
+      };
+    case 7:
+      return {
+        aspectClass: "aspect-[5/4]",
+        spanClass: "col-span-1",
+      };
+    case 8:
+      return {
+        aspectClass: "aspect-[4/3]",
+        spanClass: "col-span-2 sm:col-span-2",
+      };
+    case 9:
+      return {
+        aspectClass: "aspect-[3/4]",
+        spanClass: "col-span-1",
+      };
+    case 10:
+      return {
+        aspectClass: "aspect-[5/4]",
+        spanClass: "col-span-1",
+      };
+    default:
+      return {
+        aspectClass: "aspect-[4/3]",
+        spanClass: "col-span-1",
+      };
+  }
+}

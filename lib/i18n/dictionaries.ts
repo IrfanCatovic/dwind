@@ -102,6 +102,23 @@ export type Dictionary = {
     datenschutzTitle: string;
     placeholder: string;
   };
+  workPage: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    servicesLine: string;
+    galleryLabel: string;
+    viewsLabel: string;
+    viewLabel: string;
+    showMore: string;
+    prevImage: string;
+    nextImage: string;
+    closeLightbox: string;
+    lightboxLabel: string;
+    ctaHeading: string;
+    ctaButton: string;
+    defaultAlt: string;
+  };
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -241,6 +258,23 @@ export const dictionaries: Record<Locale, Dictionary> = {
       placeholder:
         "Rechtliche Angaben werden vor Veröffentlichung ergänzt.",
     },
+    workPage: {
+      eyebrow: "UNSERE ARBEITEN",
+      heading: "Fundamentbau in der Praxis.",
+      body: "Einblicke in unsere Arbeiten im Fundamentbau für Windenergieanlagen.",
+      servicesLine: "Bewehrung · Schalung · Betonage",
+      galleryLabel: "AUSGEFÜHRTE ARBEITEN",
+      viewsLabel: "{count} Einblicke",
+      viewLabel: "Ansehen",
+      showMore: "Mehr Arbeiten anzeigen",
+      prevImage: "Vorheriges Bild",
+      nextImage: "Nächstes Bild",
+      closeLightbox: "Schließen",
+      lightboxLabel: "Bildergalerie",
+      ctaHeading: "Sie möchten mit D-Wind über ein Projekt sprechen?",
+      ctaButton: "Kontakt aufnehmen",
+      defaultAlt: "Fundamentarbeiten auf einer Windenergie-Baustelle",
+    },
   },
   en: {
     meta: {
@@ -374,6 +408,23 @@ export const dictionaries: Record<Locale, Dictionary> = {
       impressumTitle: "Imprint",
       datenschutzTitle: "Privacy",
       placeholder: "Legal information will be completed before publication.",
+    },
+    workPage: {
+      eyebrow: "OUR WORK",
+      heading: "Foundation work in practice.",
+      body: "A look at our work on wind turbine foundation projects.",
+      servicesLine: "Reinforcement · Formwork · Concreting",
+      galleryLabel: "COMPLETED WORK",
+      viewsLabel: "{count} views",
+      viewLabel: "View",
+      showMore: "Show more work",
+      prevImage: "Previous image",
+      nextImage: "Next image",
+      closeLightbox: "Close",
+      lightboxLabel: "Image gallery",
+      ctaHeading: "Want to discuss a project with D-Wind?",
+      ctaButton: "Get in touch",
+      defaultAlt: "Foundation work on a wind energy construction site",
     },
   },
 };
