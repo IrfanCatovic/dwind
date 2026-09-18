@@ -4,11 +4,8 @@ import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import { Expand } from "lucide-react";
 import { GalleryLightbox } from "@/components/gallery/GalleryLightbox";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import {
-  GALLERY_INITIAL_COUNT,
-  GALLERY_LOAD_MORE_COUNT,
   getGalleryItemLayout,
   type GalleryImage,
 } from "@/lib/data/gallery";
@@ -21,17 +18,11 @@ type GalleryGridProps = {
 
 export function GalleryGrid({ images, dictionary }: GalleryGridProps) {
   const content = dictionary.workPage;
-  const [visibleCount, setVisibleCount] = useState(
-    Math.min(GALLERY_INITIAL_COUNT, images.length),
-  );
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const triggerRefs = useRef<Map<number, HTMLButtonElement>>(new Map());
   const lastTriggerIndex = useRef<number | null>(null);
 
-  const cappedVisibleCount = Math.min(visibleCount, images.length);
-  const visibleImages = images.slice(0, cappedVisibleCount);
-  const hasMore = cappedVisibleCount < images.length;
   const viewsLabel = content.viewsLabel.replace(
     "{count}",
     String(images.length),
@@ -51,10 +42,7 @@ export function GalleryGrid({ images, dictionary }: GalleryGridProps) {
   const closeLightbox = () => {
     setLightboxOpen(false);
     const preferred = lastTriggerIndex.current ?? lightboxIndex;
-    const focusIndex = Math.min(
-      preferred,
-      Math.max(cappedVisibleCount - 1, 0),
-    );
+    const focusIndex = Math.min(preferred, Math.max(images.length - 1, 0));
     window.requestAnimationFrame(() => {
       triggerRefs.current.get(focusIndex)?.focus();
     });
@@ -70,9 +58,8 @@ export function GalleryGrid({ images, dictionary }: GalleryGridProps) {
       </div>
 
       <ul className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4">
-        {visibleImages.map((image, index) => {
+        {images.map((image, index) => {
           const layout = getGalleryItemLayout(index);
-          const absoluteIndex = index;
 
           return (
             <li
@@ -83,12 +70,12 @@ export function GalleryGrid({ images, dictionary }: GalleryGridProps) {
                 type="button"
                 ref={(node) => {
                   if (node) {
-                    triggerRefs.current.set(absoluteIndex, node);
+                    triggerRefs.current.set(index, node);
                   } else {
-                    triggerRefs.current.delete(absoluteIndex);
+                    triggerRefs.current.delete(index);
                   }
                 }}
-                onClick={() => openLightbox(absoluteIndex)}
+                onClick={() => openLightbox(index)}
                 className={cn(
                   "group relative block w-full overflow-hidden bg-concrete/25 text-left",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 focus-visible:ring-offset-background-light",
@@ -119,24 +106,6 @@ export function GalleryGrid({ images, dictionary }: GalleryGridProps) {
           );
         })}
       </ul>
-
-      {hasMore ? (
-        <div className="mt-10 flex justify-center sm:mt-12">
-          <Button
-            type="button"
-            variant="secondary"
-            size="lg"
-            className="border-text-dark/20 text-text-dark hover:border-brand-green hover:text-brand-green focus-visible:ring-brand-green focus-visible:ring-offset-background-light"
-            onClick={() =>
-              setVisibleCount((count) =>
-                Math.min(count + GALLERY_LOAD_MORE_COUNT, images.length),
-              )
-            }
-          >
-            {content.showMore}
-          </Button>
-        </div>
-      ) : null}
 
       <GalleryLightbox
         images={images}

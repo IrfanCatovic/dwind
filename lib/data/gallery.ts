@@ -567,9 +567,6 @@ export function getPublicGalleryImages(): GalleryImage[] {
   );
 }
 
-export const GALLERY_INITIAL_COUNT = 18;
-export const GALLERY_LOAD_MORE_COUNT = 12;
-
 /** Predictable editorial aspect/span pattern for gallery rhythm */
 export function getGalleryItemLayout(index: number): {
   aspectClass: string;
