@@ -56,6 +56,26 @@ export function Button({
 
   if ("href" in props && props.href) {
     const { href, target, rel } = props;
+    const isProtocolLink =
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("http://") ||
+      href.startsWith("https://");
+
+    if (isProtocolLink) {
+      return (
+        <a
+          href={href}
+          target={target}
+          rel={rel}
+          className={classes}
+          onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link
         href={href}

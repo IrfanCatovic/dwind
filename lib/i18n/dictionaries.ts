@@ -119,6 +119,24 @@ export type Dictionary = {
     ctaButton: string;
     defaultAlt: string;
   };
+  contactPage: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    statement: string;
+    emailLabel: string;
+    phoneLabel: string;
+    mobileLabel: string;
+    locationLabel: string;
+    sendEmail: string;
+    callNow: string;
+    loadMap: string;
+    loadMapHint: string;
+    openMaps: string;
+    mapIframeTitle: string;
+    europeEyebrow: string;
+    europeBody: string;
+  };
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -275,6 +293,26 @@ export const dictionaries: Record<Locale, Dictionary> = {
       ctaButton: "Kontakt aufnehmen",
       defaultAlt: "Fundamentarbeiten auf einer Windenergie-Baustelle",
     },
+    contactPage: {
+      eyebrow: "KONTAKT",
+      heading: "Sprechen wir über Ihr Projekt.",
+      body: "Für Projektanfragen und weitere Informationen erreichen Sie D-Wind direkt per Telefon oder E-Mail.",
+      statement: "Direkter Kontakt. Klare Kommunikation.",
+      emailLabel: "E-MAIL",
+      phoneLabel: "TELEFON",
+      mobileLabel: "MOBIL",
+      locationLabel: "STANDORT",
+      sendEmail: "E-Mail senden",
+      callNow: "Jetzt anrufen",
+      loadMap: "Google Maps laden",
+      loadMapHint:
+        "Beim Laden der Karte werden Inhalte von Google Maps geladen.",
+      openMaps: "In Google Maps öffnen",
+      mapIframeTitle: "Standort von D-Wind GmbH auf Google Maps",
+      europeEyebrow: "EUROPAWEIT IM EINSATZ",
+      europeBody:
+        "D-Wind begleitet Windenergieprojekte an unterschiedlichen Standorten in Europa.",
+    },
   },
   en: {
     meta: {
@@ -425,6 +463,25 @@ export const dictionaries: Record<Locale, Dictionary> = {
       ctaHeading: "Want to discuss a project with D-Wind?",
       ctaButton: "Get in touch",
       defaultAlt: "Foundation work on a wind energy construction site",
+    },
+    contactPage: {
+      eyebrow: "CONTACT",
+      heading: "Let’s talk about your project.",
+      body: "For project inquiries and further information, contact D-Wind directly by phone or email.",
+      statement: "Direct contact. Clear communication.",
+      emailLabel: "EMAIL",
+      phoneLabel: "PHONE",
+      mobileLabel: "MOBILE",
+      locationLabel: "LOCATION",
+      sendEmail: "Send email",
+      callNow: "Call now",
+      loadMap: "Load Google Maps",
+      loadMapHint: "Loading the map connects to Google Maps.",
+      openMaps: "Open in Google Maps",
+      mapIframeTitle: "D-Wind GmbH location on Google Maps",
+      europeEyebrow: "OPERATING ACROSS EUROPE",
+      europeBody:
+        "D-Wind supports wind energy projects at various locations across Europe.",
     },
   },
 };
