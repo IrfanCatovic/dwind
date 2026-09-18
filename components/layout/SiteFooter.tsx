@@ -126,7 +126,14 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
               © {year} {dictionary.footer.rights}
             </p>
             <p className="text-[0.65rem] tracking-wide text-white/25">
-              Developer: Irfan Ćatović
+              <a
+                href="https://irfancatovic.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-white/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60"
+              >
+                Developer: Irfan Ćatović
+              </a>
             </p>
           </div>
         </div>
