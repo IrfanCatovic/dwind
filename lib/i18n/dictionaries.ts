@@ -11,6 +11,10 @@ export type Dictionary = {
     siteName: string;
     defaultTitle: string;
     defaultDescription: string;
+    workTitle: string;
+    workDescription: string;
+    contactTitle: string;
+    contactDescription: string;
   };
   nav: {
     home: string;
@@ -145,7 +149,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
       siteName: "D-Wind GmbH",
       defaultTitle: "D-Wind GmbH | Fundamentbau für Windenergieanlagen",
       defaultDescription:
-        "D-Wind GmbH – Ihr zuverlässiger Partner im Fundamentbau für Windenergieanlagen. Spezialisierung auf Windenergie in Europa.",
+        "D-Wind GmbH ist spezialisiert auf Arbeiten im Fundamentbau für Windenergieanlagen. Bewehrung, Schalung und Betonierarbeiten für Windenergieprojekte in Europa.",
+      workTitle: "Unsere Arbeiten | D-Wind GmbH",
+      workDescription:
+        "Einblicke in die Arbeiten von D-Wind im Fundamentbau für Windenergieanlagen – Bewehrung, Schalung und Betonage.",
+      contactTitle: "Kontakt | D-Wind GmbH",
+      contactDescription:
+        "Kontaktieren Sie D-Wind GmbH für Anfragen zu Windenergieprojekten und Arbeiten im Fundamentbau.",
     },
     nav: {
       home: "Startseite",
@@ -317,9 +327,15 @@ export const dictionaries: Record<Locale, Dictionary> = {
   en: {
     meta: {
       siteName: "D-Wind GmbH",
-      defaultTitle: "D-Wind GmbH | Foundations for wind turbines",
+      defaultTitle: "D-Wind GmbH | Wind Turbine Foundation Construction",
       defaultDescription:
-        "D-Wind GmbH – your reliable partner for wind turbine foundations. Specialized in wind energy across Europe.",
+        "D-Wind GmbH specializes in reinforcement, formwork and concreting work for wind turbine foundation projects across Europe.",
+      workTitle: "Our Work | D-Wind GmbH",
+      workDescription:
+        "Explore D-Wind's work on wind turbine foundations, including reinforcement, formwork and concreting.",
+      contactTitle: "Contact | D-Wind GmbH",
+      contactDescription:
+        "Contact D-Wind GmbH regarding wind energy projects and wind turbine foundation work.",
     },
     nav: {
       home: "Home",

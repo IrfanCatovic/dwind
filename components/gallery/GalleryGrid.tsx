@@ -100,8 +100,8 @@ export function GalleryGrid({ images, dictionary }: GalleryGridProps) {
                   src={image.src}
                   alt={getAlt(image)}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  priority={index < 4}
+                  sizes={layout.sizes}
+                  priority={index < 2}
                   className="object-cover transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.035] motion-reduce:group-hover:scale-100"
                 />
                 <span

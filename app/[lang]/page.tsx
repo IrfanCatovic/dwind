@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { ContactCtaSection } from "@/components/home/ContactCtaSection";
 import { EuropeSection } from "@/components/home/EuropeSection";
 import { HeroSlider } from "@/components/home/HeroSlider";
@@ -6,11 +8,29 @@ import { SpecializationSection } from "@/components/home/SpecializationSection";
 import { WorkPreviewSection } from "@/components/home/WorkPreviewSection";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { notFound } from "next/navigation";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) {
+    return {};
+  }
+
+  const dictionary = getDictionary(lang);
+
+  return buildPageMetadata({
+    locale: lang,
+    title: dictionary.meta.defaultTitle,
+    description: dictionary.meta.defaultDescription,
+    path: `/${lang}`,
+  });
+}
 
 export default async function HomePage({ params }: PageProps) {
   const { lang } = await params;

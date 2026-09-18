@@ -8,6 +8,7 @@ import { FoundationRing } from "@/components/ui/FoundationRing";
 import { getPublicGalleryImages } from "@/lib/data/gallery";
 import { isLocale, localePath } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
@@ -23,17 +24,12 @@ export async function generateMetadata({
 
   const dictionary = getDictionary(lang);
 
-  return {
-    title: dictionary.pages.workTitle,
-    description: dictionary.workPage.body,
-    alternates: {
-      languages: {
-        de: "/de/arbeiten",
-        en: "/en/arbeiten",
-        "x-default": "/de/arbeiten",
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale: lang,
+    title: dictionary.meta.workTitle,
+    description: dictionary.meta.workDescription,
+    path: `/${lang}/arbeiten`,
+  });
 }
 
 export default async function WorkPage({ params }: PageProps) {

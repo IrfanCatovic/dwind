@@ -574,6 +574,7 @@ export const GALLERY_LOAD_MORE_COUNT = 12;
 export function getGalleryItemLayout(index: number): {
   aspectClass: string;
   spanClass: string;
+  sizes: string;
 } {
   const pattern = index % 12;
 
@@ -582,61 +583,73 @@ export function getGalleryItemLayout(index: number): {
       return {
         aspectClass: "aspect-[4/3]",
         spanClass: "col-span-2 sm:col-span-1",
+        sizes: "(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 1:
       return {
         aspectClass: "aspect-[3/4]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 2:
       return {
         aspectClass: "aspect-[5/4]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 3:
       return {
         aspectClass: "aspect-[16/10]",
         spanClass: "col-span-2 sm:col-span-2 lg:col-span-2",
+        sizes: "(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 50vw",
       };
     case 4:
       return {
         aspectClass: "aspect-[4/5]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 5:
       return {
         aspectClass: "aspect-[4/3]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 6:
       return {
         aspectClass: "aspect-[3/4]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 7:
       return {
         aspectClass: "aspect-[5/4]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 8:
       return {
         aspectClass: "aspect-[4/3]",
         spanClass: "col-span-2 sm:col-span-2",
+        sizes: "(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 50vw",
       };
     case 9:
       return {
         aspectClass: "aspect-[3/4]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     case 10:
       return {
         aspectClass: "aspect-[5/4]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
     default:
       return {
         aspectClass: "aspect-[4/3]",
         spanClass: "col-span-1",
+        sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
       };
   }
 }

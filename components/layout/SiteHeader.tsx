@@ -124,6 +124,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
               <Link
                 key={item.key}
                 href={href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
                   'relative py-1 text-[0.8125rem] tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background-dark',
                   active
@@ -159,6 +160,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
               )}
               hrefLang="de"
               lang="de"
+              aria-current={locale === 'de' ? 'true' : undefined}
             >
               {dictionary.nav.de}
             </Link>
@@ -175,6 +177,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
               )}
               hrefLang="en"
               lang="en"
+              aria-current={locale === 'en' ? 'true' : undefined}
             >
               {dictionary.nav.en}
             </Link>
@@ -232,6 +235,7 @@ export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
                   key={item.key}
                   href={href}
                   onClick={closeMenu}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
                     'border-l-2 px-4 py-3 text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60',
                     active

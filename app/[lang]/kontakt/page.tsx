@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { FoundationRing } from "@/components/ui/FoundationRing";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
@@ -21,17 +22,12 @@ export async function generateMetadata({
 
   const dictionary = getDictionary(lang);
 
-  return {
-    title: dictionary.pages.contactTitle,
-    description: dictionary.contactPage.body,
-    alternates: {
-      languages: {
-        de: "/de/kontakt",
-        en: "/en/kontakt",
-        "x-default": "/de/kontakt",
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale: lang,
+    title: dictionary.meta.contactTitle,
+    description: dictionary.meta.contactDescription,
+    path: `/${lang}/kontakt`,
+  });
 }
 
 export default async function ContactPage({ params }: PageProps) {

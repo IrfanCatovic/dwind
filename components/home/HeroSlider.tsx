@@ -99,6 +99,11 @@ export function HeroSlider({ locale, dictionary }: HeroSliderProps) {
       <div className="absolute inset-0">
         {heroImages.map((image, imageIndex) => {
           const active = imageIndex === current;
+          const adjacent =
+            imageIndex === (current + 1) % total ||
+            imageIndex === (current - 1 + total) % total;
+          const shouldMount = active || adjacent;
+
           return (
             <div
               key={image.id}
@@ -109,22 +114,24 @@ export function HeroSlider({ locale, dictionary }: HeroSliderProps) {
               )}
               aria-hidden={!active}
             >
-              <div
-                key={active ? `zoom-${zoomKey}` : image.id}
-                className={cn(
-                  "absolute inset-0 will-change-transform",
-                  active && !reducedMotion && "animate-hero-kenburns",
-                )}
-              >
-                <Image
-                  src={image.src}
-                  alt={active ? hero.imageAlts[imageIndex] : ""}
-                  fill
-                  priority={imageIndex === 0}
-                  sizes="100vw"
-                  className="object-cover object-[center_30%] sm:object-center"
-                />
-              </div>
+              {shouldMount ? (
+                <div
+                  key={active ? `zoom-${zoomKey}` : image.id}
+                  className={cn(
+                    "absolute inset-0 will-change-transform",
+                    active && !reducedMotion && "animate-hero-kenburns",
+                  )}
+                >
+                  <Image
+                    src={image.src}
+                    alt={active ? hero.imageAlts[imageIndex] : ""}
+                    fill
+                    priority={imageIndex === 0}
+                    sizes="100vw"
+                    className="object-cover object-[center_30%] sm:object-center"
+                  />
+                </div>
+              ) : null}
             </div>
           );
         })}

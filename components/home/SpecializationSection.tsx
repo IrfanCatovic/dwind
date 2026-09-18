@@ -22,7 +22,7 @@ export function SpecializationSection({
       />
 
       <div className="relative grid items-center lg:grid-cols-12 lg:gap-0">
-        <div className="relative z-10 px-4 py-16 sm:px-6 sm:py-20 lg:col-span-5 lg:py-28 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:pr-10 xl:pr-14">
+        <div className="relative z-10 px-4 py-16 sm:px-6 sm:py-20 lg:col-span-5 lg:py-28 lg:pl-[max(2rem,calc((100%-80rem)/2+2rem))] lg:pr-10 xl:pr-14">
           <Container className="px-0 lg:mx-0 lg:max-w-none lg:px-0">
             <p className="text-eyebrow text-brand-cyan/90">{content.eyebrow}</p>
             <h2 className="text-h2 mt-4 max-w-xl text-balance text-text-light lg:mt-5">

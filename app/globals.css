@@ -68,6 +68,7 @@
     color: var(--text-light);
     font-family: var(--font-sans), system-ui, sans-serif;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
   body.menu-open,

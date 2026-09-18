@@ -162,7 +162,10 @@ export function GalleryLightbox({
       </p>
 
       <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
-        <p className="font-mono text-xs tracking-[0.18em] text-white/70">
+        <p
+          className="font-mono text-xs tracking-[0.18em] text-white/70"
+          aria-live="polite"
+        >
           {counter}
         </p>
         <button
@@ -201,8 +204,8 @@ export function GalleryLightbox({
             src={current.src}
             alt={getAlt(current, safeIndex)}
             fill
-            sizes="100vw"
-            priority
+            sizes="(max-width: 1024px) 100vw, 90vw"
+            quality={85}
             className="object-contain"
           />
         </div>

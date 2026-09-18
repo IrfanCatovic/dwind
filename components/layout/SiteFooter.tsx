@@ -1,18 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Container } from "@/components/layout/Container";
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { brandAssets } from "@/lib/data/brand";
 import { companyContact } from "@/lib/data/contact";
-import { cn } from "@/lib/cn";
-import {
-  localePath,
-  switchLocalePath,
-  type Locale,
-  type RouteKey,
-} from "@/lib/i18n/config";
+import { localePath, type Locale, type RouteKey } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 
 type SiteFooterProps = {
@@ -27,7 +19,6 @@ const navItems: { key: RouteKey; labelKey: "home" | "work" | "contact" }[] = [
 ];
 
 export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
-  const pathname = usePathname() || `/${locale}`;
   const year = new Date().getFullYear();
 
   return (
@@ -121,40 +112,14 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
             </Link>
           </div>
 
-          <div
-            className="flex items-center gap-2 text-[0.6875rem] font-medium tracking-[0.14em]"
-            aria-label={dictionary.footer.language}
-          >
-            <Link
-              href={switchLocalePath(pathname, "de")}
-              className={cn(
-                "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60",
-                locale === "de"
-                  ? "text-text-light"
-                  : "text-text-muted hover:text-text-light",
-              )}
-              hrefLang="de"
-              lang="de"
-            >
-              {dictionary.nav.de}
-            </Link>
-            <span aria-hidden className="text-text-muted/50">
-              |
-            </span>
-            <Link
-              href={switchLocalePath(pathname, "en")}
-              className={cn(
-                "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/60",
-                locale === "en"
-                  ? "text-text-light"
-                  : "text-text-muted hover:text-text-light",
-              )}
-              hrefLang="en"
-              lang="en"
-            >
-              {dictionary.nav.en}
-            </Link>
-          </div>
+          <LocaleSwitcher
+            locale={locale}
+            labels={{
+              de: dictionary.nav.de,
+              en: dictionary.nav.en,
+              language: dictionary.footer.language,
+            }}
+          />
 
           <p className="text-sm text-text-muted">
             © {year} {dictionary.footer.rights}

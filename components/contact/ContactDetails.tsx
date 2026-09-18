@@ -51,7 +51,7 @@ export function ContactDetails({ dictionary }: ContactDetailsProps) {
               <span className="block text-[0.65rem] tracking-[0.2em] text-text-muted">
                 {content.phoneLabel}
               </span>
-              <span className="mt-1 block whitespace-nowrap text-lg text-text-light transition-colors group-hover:text-brand-cyan sm:text-xl">
+              <span className="mt-1 block text-lg text-text-light transition-colors group-hover:text-brand-cyan sm:text-xl">
                 {companyContact.phoneDisplay}
               </span>
             </span>
@@ -71,7 +71,7 @@ export function ContactDetails({ dictionary }: ContactDetailsProps) {
               <span className="block text-[0.65rem] tracking-[0.2em] text-text-muted">
                 {content.mobileLabel}
               </span>
-              <span className="mt-1 block whitespace-nowrap text-lg text-text-light transition-colors group-hover:text-brand-cyan sm:text-xl">
+              <span className="mt-1 block text-lg text-text-light transition-colors group-hover:text-brand-cyan sm:text-xl">
                 {companyContact.mobileDisplay}
               </span>
             </span>

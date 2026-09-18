@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | D-Wind GmbH",
   },
   description:
-    "D-Wind GmbH – Ihr zuverlässiger Partner im Fundamentbau für Windenergieanlagen. Spezialisierung auf Windenergie in Europa.",
+    "D-Wind GmbH ist spezialisiert auf Arbeiten im Fundamentbau für Windenergieanlagen. Bewehrung, Schalung und Betonierarbeiten für Windenergieprojekte in Europa.",
   icons: {
     icon: [{ url: brandAssets.logo, type: "image/png" }],
     shortcut: brandAssets.logo,

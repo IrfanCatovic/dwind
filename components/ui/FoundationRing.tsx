@@ -43,6 +43,8 @@ export function FoundationRing({
       <svg
         viewBox="0 0 400 400"
         fill="none"
+        aria-hidden
+        focusable="false"
         className={cn(
           "size-full text-text-light",
           opacity,

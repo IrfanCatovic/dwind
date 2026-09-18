@@ -24,7 +24,6 @@ type PreviewTileProps = {
   hoverLabel: string;
   className?: string;
   sizes: string;
-  priority?: boolean;
 };
 
 function PreviewTile({
@@ -34,7 +33,6 @@ function PreviewTile({
   hoverLabel,
   className,
   sizes,
-  priority = false,
 }: PreviewTileProps) {
   return (
     <Link
@@ -50,7 +48,6 @@ function PreviewTile({
         alt={alt}
         fill
         sizes={sizes}
-        priority={priority}
         className="object-cover transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
       />
       <span
@@ -122,7 +119,6 @@ export function WorkPreviewSection({
             hoverLabel={content.hoverCta}
             className="col-span-7 min-h-[36rem] xl:min-h-[40rem]"
             sizes="(max-width: 1280px) 55vw, 640px"
-            priority
           />
           <div className="col-span-5 grid grid-cols-2 grid-rows-2 gap-4">
             {supporting.map((image, index) => (
@@ -148,7 +144,6 @@ export function WorkPreviewSection({
             hoverLabel={content.hoverCta}
             className="col-span-full aspect-[4/3] min-h-[14rem] sm:aspect-[16/10] sm:min-h-[18rem]"
             sizes="100vw"
-            priority
           />
           {supporting.map((image, index) => (
             <PreviewTile
