@@ -48,7 +48,7 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
           observer.disconnect();
         }
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
     );
 
     observer.observe(node);
@@ -66,8 +66,8 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
         className="-right-[32%] -top-[18%] opacity-40 lg:-right-[20%]"
       />
 
-      <Container className="relative z-10 py-16 sm:py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
+      <Container className="relative z-10 py-16 sm:py-20 lg:py-24">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           <div
             className={cn(
               "lg:col-span-5",
@@ -88,7 +88,7 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
               {content.supportStatement}
             </p>
 
-            <ul className="mt-10 grid gap-5 sm:grid-cols-3 sm:gap-6 lg:mt-12">
+            <ul className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-3 sm:gap-6 lg:mt-10">
               {content.points.map((point) => (
                 <li key={point.number} className="min-w-0">
                   <span className="font-mono text-[0.6875rem] tracking-[0.2em] text-brand-green">
@@ -118,14 +118,14 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
             <FoundationRing
               anchor="center"
               intensity="subtle"
-              className="left-1/2 top-1/2 size-[min(95%,28rem)] -translate-x-1/2 -translate-y-1/2 opacity-30 sm:size-[min(90%,34rem)]"
+              className="left-1/2 top-1/2 size-[min(95%,26rem)] -translate-x-1/2 -translate-y-1/2 opacity-25 sm:size-[min(90%,32rem)]"
             />
 
-            <div className="relative overflow-hidden rounded-sm border border-white/[0.07] bg-background-dark-secondary/40 p-2 sm:p-3 lg:p-4">
+            <div className="relative overflow-hidden rounded-sm border border-white/[0.08] bg-background-dark-secondary/25 p-1 sm:p-1.5 lg:p-2">
               <EuropeTechnicalMap
                 label={content.mapLabel}
                 statement={content.visualStatement}
-                className="europe-map-motion mx-auto w-full max-w-none sm:max-w-xl lg:max-w-none"
+                className="europe-map-motion w-full max-w-none"
               />
             </div>
           </div>

@@ -7,7 +7,7 @@ export const brandAssets = {
 
 /** Featured construction photo for the specialization homepage section */
 export const specializationImage = {
-  src: "/images/gallery/d-wind-06-galerie-anker.webp",
+  src: "/images/gallery/123.webp",
   width: 1600,
   height: 1067,
 } as const;

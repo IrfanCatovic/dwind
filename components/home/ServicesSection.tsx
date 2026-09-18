@@ -97,18 +97,18 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
         className="-bottom-[45%] -right-[28%] text-text-dark opacity-[0.35]"
       />
 
-      <Container className="relative z-10 py-16 sm:py-20 lg:py-28">
+      <Container className="relative z-10 py-14 sm:py-16 lg:py-[5.5rem]">
         <div className="max-w-2xl">
           <p className="text-eyebrow text-brand-green">{content.eyebrow}</p>
           <h2 className="text-h2 mt-4 text-balance text-text-dark">
             {content.heading}
           </h2>
-          <p className="text-body mt-5 max-w-xl text-concrete-dark">
+          <p className="text-body mt-4 max-w-xl text-concrete-dark sm:mt-5">
             {content.intro}
           </p>
         </div>
 
-        <ul className="mt-12 grid gap-0 border-t border-border-light sm:mt-14 lg:mt-16 lg:grid-cols-3 lg:border-t-0">
+        <ul className="mt-10 grid gap-0 border-t border-border-light sm:mt-12 lg:mt-14 lg:grid-cols-3 lg:border-t-0">
           {content.items.map((item, index) => {
             const Icon = icons[index];
 
@@ -116,8 +116,8 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
               <li
                 key={item.number}
                 className={cn(
-                  "group border-b border-border-light py-8 last:border-b-0 sm:py-9",
-                  "lg:border-b-0 lg:border-l lg:border-border-light lg:px-8 lg:py-2 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0",
+                  "group border-b border-border-light py-7 last:border-b-0 sm:py-8",
+                  "lg:border-b-0 lg:border-l lg:border-border-light lg:px-8 lg:py-1 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0",
                 )}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -127,9 +127,9 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
                   <Icon className="size-10 text-concrete-dark transition-colors duration-300 group-hover:text-brand-green motion-reduce:transition-none" />
                 </div>
 
-                <div className="mt-6 h-px w-10 origin-left bg-brand-green/50 transition-all duration-300 group-hover:w-16 group-hover:bg-brand-green motion-reduce:transition-none" />
+                <div className="mt-5 h-px w-10 origin-left bg-brand-green/50 transition-all duration-300 group-hover:w-16 group-hover:bg-brand-green motion-reduce:transition-none" />
 
-                <h3 className="text-h3 mt-5 text-text-dark">{item.title}</h3>
+                <h3 className="text-h3 mt-4 text-text-dark">{item.title}</h3>
                 <p className="mt-3 max-w-sm text-[0.9375rem] leading-relaxed text-concrete-dark">
                   {item.description}
                 </p>

@@ -19,19 +19,19 @@ export function EuropeTechnicalMap({
 }: EuropeTechnicalMapProps) {
   return (
     <div className={cn("relative overflow-hidden", className)}>
-      <div className="relative aspect-[4/3] w-full sm:aspect-[5/4] lg:aspect-[4/3]">
+      <div className="relative aspect-[4/3] w-full lg:aspect-[5/4] xl:aspect-[4/3]">
         <Image
           src={europeImage.src}
           alt={label}
           fill
           sizes="(max-width: 1024px) 100vw, 58vw"
-          className="object-contain object-center"
+          className="object-contain object-center brightness-[1.35] contrast-[1.08] saturate-[1.05]"
           priority={false}
         />
       </div>
 
-      <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-5 sm:left-5">
-        <p className="text-[0.65rem] font-medium uppercase leading-relaxed tracking-[0.22em] text-text-muted/90">
+      <div className="pointer-events-none absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+        <p className="text-[0.65rem] font-medium uppercase leading-relaxed tracking-[0.22em] text-text-muted">
           {statement.map((line) => (
             <span key={line} className="block">
               {line}

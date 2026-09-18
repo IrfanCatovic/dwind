@@ -121,9 +121,14 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
             }}
           />
 
-          <p className="text-sm text-text-muted">
-            © {year} {dictionary.footer.rights}
-          </p>
+          <div className="flex flex-col items-start gap-1 sm:items-end">
+            <p className="text-sm text-text-muted">
+              © {year} {dictionary.footer.rights}
+            </p>
+            <p className="text-[0.65rem] tracking-wide text-white/25">
+              Developer: Irfan Ćatović
+            </p>
+          </div>
         </div>
       </Container>
     </footer>
