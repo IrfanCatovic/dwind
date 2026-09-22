@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { FoundationRing } from "@/components/ui/FoundationRing";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import {
   getHomepagePreviewImages,
@@ -86,7 +87,7 @@ export function WorkPreviewSection({
 
       <Container className="relative z-10 py-16 sm:py-20 lg:py-28">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <p className="text-eyebrow text-brand-green">{content.eyebrow}</p>
             <h2 className="text-h2 mt-4 text-balance text-text-dark">
               {content.heading}
@@ -94,9 +95,12 @@ export function WorkPreviewSection({
             <p className="text-body mt-4 max-w-xl text-concrete-dark">
               {content.body}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-end lg:gap-5">
+          <Reveal
+            delay={100}
+            className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-end lg:gap-5"
+          >
             <p className="font-mono text-[0.65rem] tracking-[0.22em] text-concrete-dark/70">
               {content.sectionId}
             </p>
@@ -107,54 +111,60 @@ export function WorkPreviewSection({
                 className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
               />
             </Button>
-          </div>
+          </Reveal>
         </div>
 
         {/* Desktop asymmetric mosaic */}
         <div className="mt-12 hidden gap-4 lg:mt-16 lg:grid lg:grid-cols-12">
-          <PreviewTile
-            image={feature}
-            alt={content.imageAlts[0]}
-            href={href}
-            hoverLabel={content.hoverCta}
-            className="col-span-7 min-h-[36rem] xl:min-h-[40rem]"
-            sizes="(max-width: 1280px) 55vw, 640px"
-          />
+          <Reveal delay={80} className="col-span-7 h-full">
+            <PreviewTile
+              image={feature}
+              alt={content.imageAlts[0]}
+              href={href}
+              hoverLabel={content.hoverCta}
+              className="h-full min-h-[36rem] xl:min-h-[40rem]"
+              sizes="(max-width: 1280px) 55vw, 640px"
+            />
+          </Reveal>
           <div className="col-span-5 grid grid-cols-2 grid-rows-2 gap-4">
             {supporting.map((image, index) => (
-              <PreviewTile
-                key={image.id}
-                image={image}
-                alt={content.imageAlts[index + 1]}
-                href={href}
-                hoverLabel={content.hoverCta}
-                className="min-h-[17.5rem] xl:min-h-[19.25rem]"
-                sizes="(max-width: 1280px) 22vw, 240px"
-              />
+              <Reveal key={image.id} delay={140 + index * 70} className="h-full">
+                <PreviewTile
+                  image={image}
+                  alt={content.imageAlts[index + 1]}
+                  href={href}
+                  hoverLabel={content.hoverCta}
+                  className="h-full min-h-[17.5rem] xl:min-h-[19.25rem]"
+                  sizes="(max-width: 1280px) 22vw, 240px"
+                />
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Mobile / tablet */}
         <div className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 lg:hidden">
-          <PreviewTile
-            image={feature}
-            alt={content.imageAlts[0]}
-            href={href}
-            hoverLabel={content.hoverCta}
-            className="col-span-full aspect-[4/3] min-h-[14rem] sm:aspect-[16/10] sm:min-h-[18rem]"
-            sizes="100vw"
-          />
-          {supporting.map((image, index) => (
+          <Reveal className="col-span-full">
             <PreviewTile
-              key={image.id}
-              image={image}
-              alt={content.imageAlts[index + 1]}
+              image={feature}
+              alt={content.imageAlts[0]}
               href={href}
               hoverLabel={content.hoverCta}
-              className="aspect-[4/5] min-h-[12rem] sm:aspect-[3/4] sm:min-h-[14rem]"
-              sizes="(max-width: 640px) 50vw, 50vw"
+              className="aspect-[4/3] min-h-[14rem] sm:aspect-[16/10] sm:min-h-[18rem]"
+              sizes="100vw"
             />
+          </Reveal>
+          {supporting.map((image, index) => (
+            <Reveal key={image.id} delay={80 + index * 60}>
+              <PreviewTile
+                image={image}
+                alt={content.imageAlts[index + 1]}
+                href={href}
+                hoverLabel={content.hoverCta}
+                className="aspect-[4/5] min-h-[12rem] sm:aspect-[3/4] sm:min-h-[14rem]"
+                sizes="(max-width: 640px) 50vw, 50vw"
+              />
+            </Reveal>
           ))}
         </div>
       </Container>

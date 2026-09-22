@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { FoundationRing } from "@/components/ui/FoundationRing";
+import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 
@@ -98,7 +99,7 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
       />
 
       <Container className="relative z-10 py-14 sm:py-16 lg:py-[5.5rem]">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="text-eyebrow text-brand-green">{content.eyebrow}</p>
           <h2 className="text-h2 mt-4 text-balance text-text-dark">
             {content.heading}
@@ -106,15 +107,17 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
           <p className="text-body mt-4 max-w-xl text-concrete-dark sm:mt-5">
             {content.intro}
           </p>
-        </div>
+        </Reveal>
 
         <ul className="mt-10 grid gap-0 border-t border-border-light sm:mt-12 lg:mt-14 lg:grid-cols-3 lg:border-t-0">
           {content.items.map((item, index) => {
             const Icon = icons[index];
 
             return (
-              <li
+              <Reveal
                 key={item.number}
+                as="li"
+                delay={index * 100}
                 className={cn(
                   "group border-b border-border-light py-7 last:border-b-0 sm:py-8",
                   "lg:border-b-0 lg:border-l lg:border-border-light lg:px-8 lg:py-1 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0",
@@ -133,7 +136,7 @@ export function ServicesSection({ dictionary }: ServicesSectionProps) {
                 <p className="mt-3 max-w-sm text-[0.9375rem] leading-relaxed text-concrete-dark">
                   {item.description}
                 </p>
-              </li>
+              </Reveal>
             );
           })}
         </ul>

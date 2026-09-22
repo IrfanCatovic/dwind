@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/layout/Container";
 import { FoundationRing } from "@/components/ui/FoundationRing";
 import { EuropeTechnicalMap } from "@/components/ui/EuropeTechnicalMap";
-import { cn } from "@/lib/cn";
+import { Reveal } from "@/components/ui/Reveal";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 
 type EuropeSectionProps = {
@@ -13,53 +12,9 @@ type EuropeSectionProps = {
 
 export function EuropeSection({ dictionary }: EuropeSectionProps) {
   const content = dictionary.europe;
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updateMotion = () => {
-      const prefersReduced = media.matches;
-      setReducedMotion(prefersReduced);
-      if (prefersReduced) {
-        setVisible(true);
-      }
-    };
-    updateMotion();
-    media.addEventListener("change", updateMotion);
-    return () => media.removeEventListener("change", updateMotion);
-  }, []);
-
-  useEffect(() => {
-    if (reducedMotion) {
-      return;
-    }
-
-    const node = sectionRef.current;
-    if (!node) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [reducedMotion]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden border-t border-white/10 bg-background-dark text-text-light"
-    >
+    <section className="relative overflow-hidden border-t border-white/10 bg-background-dark text-text-light">
       <FoundationRing
         anchor="top-right"
         intensity="subtle"
@@ -68,15 +23,7 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
 
       <Container className="relative z-10 py-16 sm:py-20 lg:py-24">
         <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-10">
-          <div
-            className={cn(
-              "lg:col-span-5",
-              "transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none",
-              visible || reducedMotion
-                ? "translate-y-0 opacity-100"
-                : "translate-y-4 opacity-0",
-            )}
-          >
+          <Reveal className="lg:col-span-5">
             <p className="text-eyebrow text-brand-cyan/90">{content.eyebrow}</p>
             <h2 className="text-h2 mt-4 text-balance text-text-light">
               {content.heading}
@@ -104,17 +51,9 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div
-            className={cn(
-              "relative lg:col-span-7",
-              "transition-[opacity,transform] duration-700 delay-100 ease-out motion-reduce:transition-none motion-reduce:delay-0",
-              visible || reducedMotion
-                ? "translate-y-0 opacity-100"
-                : "translate-y-5 opacity-0",
-            )}
-          >
+          <Reveal delay={140} className="relative lg:col-span-7">
             <FoundationRing
               anchor="center"
               intensity="subtle"
@@ -128,7 +67,7 @@ export function EuropeSection({ dictionary }: EuropeSectionProps) {
                 className="europe-map-motion w-full max-w-none"
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

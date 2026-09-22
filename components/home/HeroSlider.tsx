@@ -164,9 +164,11 @@ export function HeroSlider({ locale, dictionary }: HeroSliderProps) {
 
       <Container className="relative z-10 flex flex-1 flex-col justify-end pb-32 pt-[calc(var(--site-header-height)+1.25rem)] sm:pb-28 lg:justify-center lg:pb-32 lg:pt-[calc(var(--site-header-height)+2rem)]">
         <div className="max-w-xl lg:max-w-[32rem] xl:max-w-[34rem]">
-          <p className="text-eyebrow text-brand-cyan">{hero.eyebrow}</p>
+          <p className="text-eyebrow animate-fade-up text-brand-cyan">
+            {hero.eyebrow}
+          </p>
 
-          <h1 className="text-display mt-4 text-balance text-text-light sm:mt-5">
+          <h1 className="text-display animate-fade-up anim-delay-100 mt-4 text-balance text-text-light sm:mt-5">
             {hero.titleLines.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -174,11 +176,11 @@ export function HeroSlider({ locale, dictionary }: HeroSliderProps) {
             ))}
           </h1>
 
-          <p className="text-body mt-5 max-w-md text-text-muted sm:mt-6 sm:max-w-lg">
+          <p className="text-body animate-fade-up anim-delay-200 mt-5 max-w-md text-text-muted sm:mt-6 sm:max-w-lg">
             {hero.description}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
+          <div className="animate-fade-up anim-delay-300 mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
             <Button
               href={localePath(locale, "arbeiten")}
               size="lg"
@@ -199,7 +201,7 @@ export function HeroSlider({ locale, dictionary }: HeroSliderProps) {
             </Button>
           </div>
 
-          <p className="mt-6 text-sm tracking-wide text-text-muted/80">
+          <p className="animate-fade-up anim-delay-450 mt-6 text-sm tracking-wide text-text-muted/80">
             {hero.trustLine}
           </p>
         </div>
@@ -207,7 +209,7 @@ export function HeroSlider({ locale, dictionary }: HeroSliderProps) {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20">
         <Container className="pointer-events-auto flex items-end justify-between gap-4 pb-5 sm:pb-6 lg:justify-end lg:pb-8">
-          <div className="flex w-full max-w-[14rem] flex-col gap-3 sm:max-w-[16rem] lg:ml-auto">
+          <div className="animate-fade-in anim-delay-600 flex w-full max-w-[14rem] flex-col gap-3 sm:max-w-[16rem] lg:ml-auto">
             <div className="flex items-center justify-between gap-3">
               <p
                 className="font-mono text-xs tracking-[0.18em] text-text-muted"

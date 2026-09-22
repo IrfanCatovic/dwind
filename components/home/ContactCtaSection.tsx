@@ -3,6 +3,7 @@ import { ArrowRight, Mail, Phone, Smartphone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { FoundationRing } from "@/components/ui/FoundationRing";
+import { Reveal } from "@/components/ui/Reveal";
 import {
   companyContact,
   contactCtaBackground,
@@ -51,7 +52,7 @@ export function ContactCtaSection({
 
       <Container className="relative z-10 py-16 sm:py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-10">
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
             <p className="text-eyebrow text-brand-cyan/90">{content.eyebrow}</p>
             <h2 className="text-h2 mt-4 max-w-2xl text-balance text-text-light lg:text-display lg:leading-[1.1]">
               {content.heading}
@@ -75,9 +76,9 @@ export function ContactCtaSection({
             <p className="mt-10 text-[0.65rem] font-medium tracking-[0.22em] text-text-muted/70">
               {content.statement}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-5 lg:justify-self-end">
+          <Reveal delay={120} className="lg:col-span-5 lg:justify-self-end">
             <ul className="flex flex-col gap-5 sm:gap-6">
               <li>
                 <a
@@ -137,7 +138,7 @@ export function ContactCtaSection({
                 </a>
               </li>
             </ul>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
