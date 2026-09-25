@@ -91,6 +91,27 @@
   }
 }
 
+@keyframes splash-out {
+  0%,
+  60% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes loader-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+
 @keyframes hero-kenburns {
   from {
     transform: scale(1);
@@ -167,6 +188,18 @@
     animation: foundation-spin 120s linear infinite;
   }
 
+  .animate-rotor-spin {
+    animation: foundation-spin 2.6s linear infinite;
+  }
+
+  .animate-loader-sweep {
+    animation: loader-sweep 1.5s ease-in-out infinite;
+  }
+
+  .animate-splash-out {
+    animation: splash-out 0.95s ease-out forwards;
+  }
+
   .animate-hero-kenburns {
     animation: hero-kenburns 6.2s ease-out forwards;
   }
@@ -221,6 +254,19 @@
     .animate-fade-up,
     .animate-fade-in {
       animation: none !important;
+    }
+
+    /* Loading feedback stays, but slowed to a near-static turn */
+    .animate-rotor-spin {
+      animation-duration: 14s;
+    }
+
+    .animate-loader-sweep {
+      animation: none;
+    }
+
+    .animate-splash-out {
+      animation-duration: 0.4s;
     }
   }
 }

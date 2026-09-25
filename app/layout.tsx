@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
+import { InitialLoadSplash } from "@/components/ui/InitialLoadSplash";
 import { brandAssets } from "@/lib/data/brand";
 import "./globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="de" className={`${ibmPlexSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background-dark font-sans text-text-light">
+        <InitialLoadSplash />
         {children}
       </body>
     </html>
