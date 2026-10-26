@@ -103,6 +103,32 @@
   }
 }
 
+@keyframes wind-drift {
+  0% {
+    stroke-dashoffset: 30;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+}
+
+@keyframes beacon-blink {
+  0%,
+  45%,
+  100% {
+    opacity: 0.2;
+  }
+  10%,
+  30% {
+    opacity: 1;
+  }
+}
+
 @keyframes loader-sweep {
   from {
     transform: translateX(-100%);
@@ -200,6 +226,18 @@
     animation: splash-out 0.95s ease-out forwards;
   }
 
+  .animate-wind-drift {
+    animation: wind-drift 2.4s ease-in-out infinite both;
+  }
+
+  .animate-beacon-blink {
+    animation: beacon-blink 1.6s ease-in-out infinite;
+  }
+
+  .animate-survey-orbit {
+    animation: foundation-spin 18s linear infinite;
+  }
+
   .animate-hero-kenburns {
     animation: hero-kenburns 6.2s ease-out forwards;
   }
@@ -252,7 +290,10 @@
     .animate-hero-kenburns,
     .animate-lightbox-in,
     .animate-fade-up,
-    .animate-fade-in {
+    .animate-fade-in,
+    .animate-wind-drift,
+    .animate-beacon-blink,
+    .animate-survey-orbit {
       animation: none !important;
     }
 
