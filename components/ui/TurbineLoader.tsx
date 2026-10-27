@@ -116,6 +116,13 @@ export function TurbineLoader({ className, label }: TurbineLoaderProps) {
         strokeWidth="1.5"
         className="text-text-light/50"
       />
+      <circle
+        cx="120"
+        cy="96"
+        r="18"
+        strokeWidth="1"
+        className="animate-hub-pulse origin-[120px_96px] [transform-box:view-box] stroke-brand-green/70"
+      />
     </svg>
   );
 }
