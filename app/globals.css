@@ -144,6 +144,16 @@
   }
 }
 
+@keyframes anchor-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 @keyframes loader-sweep {
   from {
     transform: translateX(-100%);
@@ -257,6 +267,10 @@
     animation: hub-pulse 2.8s ease-out infinite;
   }
 
+  .animate-anchor-glow {
+    animation: anchor-glow 2.4s ease-in-out infinite;
+  }
+
   .animate-hero-kenburns {
     animation: hero-kenburns 6.2s ease-out forwards;
   }
@@ -313,7 +327,8 @@
     .animate-wind-drift,
     .animate-beacon-blink,
     .animate-survey-orbit,
-    .animate-hub-pulse {
+    .animate-hub-pulse,
+    .animate-anchor-glow {
       animation: none !important;
     }
 

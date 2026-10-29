@@ -64,6 +64,10 @@ export function TurbineLoader({ className, label }: TurbineLoaderProps) {
         strokeWidth="1"
         strokeDasharray="4 6"
       />
+      <g className="animate-anchor-glow">
+        <circle cx="100" cy="230" r="2" className="fill-brand-cyan/80" />
+        <circle cx="140" cy="230" r="2" className="fill-brand-cyan/80" />
+      </g>
 
       {windGusts.map((gust) => (
         <path
