@@ -45,6 +45,12 @@ export function TurbineLoader({ className, label }: TurbineLoaderProps) {
           strokeLinecap="round"
           className="stroke-brand-green"
         />
+        <path
+          d="M120 172 v12"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          className="stroke-brand-cyan/80"
+        />
       </g>
 
       <path
